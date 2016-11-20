@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="StarterApp">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <title>Craig's List Search</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
+</head>
+
+<body layout>
+<!-- Main Page -->
+<div layout="column" class="relative" layout-fill role="main">
+    <!-- App bar -->
+    <md-toolbar class="md-whiteframe-z2">
+        <div class="md-toolbar-tools">
+            <h3>
+                Craig's List Search
+            </h3>
+        </div>
+    </md-toolbar>
+
+    <!-- Main Content -->
+    <md-content flex>
+        <ui-view layout="column" layout-fill layout-padding>
+            <div ng-view=""></div>
+        </ui-view>
+    </md-content>
+</div>
+
+<!-- Angular Material Dependencies -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+<!-- Angular Material -->
+<script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
+
+<script src="app.js"></script>
+<script src="components/search/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+[ng-click]:hover {
+    cursor: pointer;
+}
+
+body,
+md-content {
+    background-color: #f5f5f5 !important;
+}
+
+body > md-toolbar {
+    z-index: 3;
+}
+
+md-toolbar.md-table-toolbar.alternate {
+    color: #1e88e5;
+    background-color: #e3f2fd;
+}
+
+md-toolbar.md-table-toolbar.alternate .md-toolbar-tools {
+    font-size: 16px;
+}
+
+.test {
+    height: auto;
+    overflow: auto;
+    max-width: 800px;
+    margin: auto;
+    opacity: .99999; /* header row would inherit opacity of top-bg*/
+}
+
+.results {
+    height: auto;
+    overflow: auto;
+    max-width: 1000px;
+    margin: auto;
+    padding: 1%;
+    opacity: .99999; /* header row would inherit opacity of top-bg*/
+}
+
+.top-bg {
+    opacity: 0.35;
+    position: absolute;
+
+    z-index: .99;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 20.2vh;
+    background-image: url(../header-bg.jpeg);
+    background-size: cover;
+}
+
+md-icon.commands-icon svg {
+    fill: #737373;
+    position: relative;
+}
+
+md-toolbar.md-table-toolbar.alternate .md-toolbar-tools {
+    color: #1e88e5;
+    font-size: 16px;
+    background-color: #e3f2fd;
+}
+
+md-toolbar.md-table-toolbar {
+    background-color: #FAFAFA;
+}
+
+md-sidenav, md-sidenav.md-locked-open, md-sidenav.md-closed.md-locked-open-add-active {
+    min-width: 256px !important;
+    width: 50vw !important;
+    max-width: 256px !important;
+}
+
+md-content.md-default-theme {
+    background-color: #eee;
+}
+
+md-sidenav > md-toolbar {
+    padding: 15px;
+    height: 126px;
+    max-height: 126px;
+}
+
+md-sidenav md-list-item.md-2-line .md-list-item-text {
+    padding-top: 14px;
+    padding-bottom: 12px;
+}
+
+md-sidenav md-divider {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+md-sidenav md-icon {
+    fill: #737373;
+    position: relative;
+}
+
+md-sidenav .md-avatar {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+}
+
+/* More closely matches https://www.google.com/design/spec/components/lists.html#lists-specs */
+md-list-item.md-3-line md-divider[md-inset] {
+    left: 70px;
+}
+
+.md-avatar > svg {
+    border-radius: 50%;
+}
+
+/* fade animation */
+.animate-show {
+    transition: 0.75s ease-out opacity;
+    opacity: 1;
+}
+
+.animate-show.ng-hide {
+    height: 0;
+    min-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}

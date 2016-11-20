@@ -1,0 +1,63 @@
+<div class="top-bg md-accent-bg"></div>
+<div class="center layout-column flex" layout="row">
+    <div flex="30" layout-align="center start">
+        <h1>Cross City Craig's List Search</h1>
+    </div>
+    <div flex="" layout="column" layout-align="end start">
+        <!-- cities and Start Scan button-->
+        <md-input-container class="md-block">
+            <label>cities</label>
+            <input required type="search" name="input" ng-model="input" ng-pattern="/[a-zA-Z]+/g"/>
+            <div ng-messages="input.$error" role="alert">
+                <div ng-message="required">
+                    Invalid Characters
+                </div>
+            </div>
+        </md-input-container>
+        <div flex="" layout="row" layout-align="end start">
+            <!-- cities and Start Scan button-->
+            <md-input-container class="md-block">
+                <label>search</label>
+                <input required type="search" name="query" ng-model="query" ng-pattern="/[a-zA-Z]+/g"/>
+                <div ng-messages="query.$error" role="alert">
+                    <div ng-message="required">
+                        Invalid Characters
+                    </div>
+                </div>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-click="search()">Search</md-button>
+        </div>
+    </div>
+</div>
+
+<md-card class="test" style="padding-left:10px;padding-right: 10px">
+    <h4>
+        {{cities.length}} cit{{cities.length == 1 ? 'y' : 'ies'}},
+        {{results.length}} result{{results.length != 1 ? 's' : ''}}
+    </h4>
+</md-card>
+
+<div class="results">
+    <md-card style="padding: 10px" ng-repeat="area in cities">
+        <div layout="row" layout-align="space-between center">
+            <h3>{{area}}</h3>
+            <h3>dropdown_img</h3>
+        </div>
+        <md-grid-list
+                md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="5" md-row-height-gt-md="1:1"
+                md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+            <md-grid-tile style="background: gray" ng-repeat="i in results[area] track by $index">
+                <span>
+                    {{i.price}}
+                {{i.location}}
+                {{i.description}}
+                </span>
+                <md-grid-tile-footer>
+                    <h3>{{i.title}}</h3>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+        </md-grid-list>
+    </md-card>
+</div>
+
+
