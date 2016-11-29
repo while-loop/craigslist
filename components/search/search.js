@@ -11,9 +11,17 @@ app.controller('SearchController', ['$scope', '$cookies', 'myCache',
         $scope.input = $cookies.get("areas") ? $cookies.get("areas") : "lakeland,miami,spacecoast";
         $scope.query = $cookies.get("query") ? $cookies.get("query") : "240sx";
         $scope.areas = $scope.input.split(',');
+        $scope.hidden = {};
+        for (var i = 0; i < $scope.areas.length; i++) {
+            $scope.hidden[$scope.areas[i]] = false;
+        }
         $scope.total = 0;
 
-        $scope.hide = function (area, obj) {
+        $scope.toggleArea = function (area) {
+            $scope.hidden[area] = !$scope.hidden[area];
+        };
+
+        $scope.hideResult = function (area, obj) {
             console.log("area: " + area + " object: " + obj);
             var index = $scope.results[area].indexOf(obj);
             console.log("index: " + index);
