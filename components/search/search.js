@@ -3,6 +3,7 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
         var URL = 'http://AREA.craigslist.org/search/sss?sort=rel&query=QUERY';
         var IMAGE_URL = 'https://images.craigslist.org/IMAGE_ID_600x450.jpg';
 
+
         if ($localStorage.hiddenResults === undefined) {
             $localStorage.hiddenResults = [];
         }
@@ -11,6 +12,7 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
             document.getElementsByTagName('md-content')[0].scrollTop = $localStorage.pos;
         }, 2000);
 
+        $scope.searching = false;
         $scope.input = $cookies.get("areas") ? $cookies.get("areas") : "lakeland,miami,spacecoast";
         $scope.query = $cookies.get("query") ? $cookies.get("query") : "240sx";
         $scope.areas = $scope.input.split(',');
@@ -53,6 +55,7 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
             $cookies.put("areas", $scope.input);
             $cookies.put("query", $scope.query);
             $scope.total = 0;
+            $scope.searching = true;
             $scope.areas = $scope.input.split(',');
             for (var i = 0; i < $scope.areas.length; i++) {
                 $scope.areas[i] = trim11($scope.areas[i]);
@@ -60,7 +63,6 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
                 var tmpUrl = URL.replace("AREA", area).replace("QUERY", $scope.query);
                 $scope.results[area] = [];
                 httpGet("http://cors.io/?" + tmpUrl, area, success);
-
                 function success(data, myArea) {
                     var test = new DOMParser().parseFromString(data, 'text/html');
                     var rows = test.getElementsByClassName("result-row");
@@ -116,6 +118,7 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
                     }
                     $scope.total += $scope.results[myArea].length;
                     $scope.$apply();
+                    $scope.searching = false;
                 }
             }
             $localStorage.results = $scope.results;

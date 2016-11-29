@@ -21,10 +21,13 @@
 </div>
 
 <md-card class="test" style="padding-left:10px;padding-right: 10px">
-    <h4>
+    <span><h4>
+        <md-progress-circular ng-show="searching" md-mode="indeterminate"></md-progress-circular>
+
         {{areas.length}} area{{areas.length != 1 ? 's' : ''}},
         {{total}} result{{total != 1 ? 's' : ''}}
-    </h4>
+
+    </h4></span>
 </md-card>
 
 <div class="results" id="test">
@@ -36,7 +39,8 @@
         <md-grid-list ng-hide="hidden[area]" md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5"
                       md-row-height-gt-md="1:1"
                       md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
-            <md-grid-tile id="{{i.pid}}" style="background: url('{{i.pics[0]}}') center center no-repeat; background-size: cover;"
+            <md-grid-tile id="{{i.pid}}"
+                          style="background: url('{{i.pics[0]}}') center center no-repeat; background-size: cover;"
                           ng-repeat="i in results[area] track by $index">
 
                 <button class="hide-icon" ng-click="hideResult(area, i)"></button>
