@@ -38,6 +38,7 @@
             <md-grid-tile style="background: url('{{i.pics[0]}}') center center no-repeat; background-size: cover;"
                           ng-repeat="i in results[area] track by $index">
 
+                <button class="hide-icon" ng-click="hide(i.url)"></button>
                 <a href="http://{{i.url}}" class="fill-div"></a>
                 <footer>
                     <a ng-href="http://{{i.url}}">

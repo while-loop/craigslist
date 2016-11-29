@@ -13,6 +13,9 @@ app.controller('SearchController', ['$scope', '$cookies', 'myCache',
         $scope.areas = $scope.input.split(',');
         $scope.total = 0;
 
+        $scope.hide = function (id) {
+            console.log("Id: " + id);
+        };
         $scope.search = function () {
             $cookies.put("areas", $scope.input);
             $cookies.put("query", $scope.query);
