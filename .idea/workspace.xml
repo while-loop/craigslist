@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9fc66cee-e3c7-4b3f-874a-9f90a78aec86" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/search/search.html" afterPath="$PROJECT_DIR$/components/search/search.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/search/search.js" afterPath="$PROJECT_DIR$/components/search/search.js" />
     </list>
     <ignored path="craigslist.iws" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/search/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
+            <state relative-caret-position="135">
+              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -599,12 +598,12 @@
       <updated>1479671202813</updated>
       <workItem from="1479671203970" duration="26104000" />
       <workItem from="1479699255186" duration="278000" />
-      <workItem from="1480429009392" duration="20408000" />
+      <workItem from="1480429009392" duration="21212000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46790000" />
+    <option name="totallyTimeSpent" value="47594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1126" extended-state="6" />
@@ -798,8 +797,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/search/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
+        <state relative-caret-position="135">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding />
         </state>
       </provider>
