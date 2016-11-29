@@ -33,15 +33,17 @@
             <h3>{{area}}</h3>
             <h3>dropdown_img</h3>
         </div>
-        <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1"
+        <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5" md-row-height-gt-md="1:1"
                       md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
-            <md-grid-tile style="background: url('{{i.pics[0]}}') center center no-repeat;"
+            <md-grid-tile style="background: url('{{i.pics[0]}}') center center no-repeat; background-size: cover;"
                           ng-repeat="i in results[area] track by $index">
-                <md-grid-tile-footer style="background-color: black;opacity: .80">
-                    <a ng-href="http://{{i.url}}" style="text-decoration: none;color:inherit;">
-                        <h5><span><i>{{i.date}}</i> - {{i.title}} - <b>{{i.price}}</b> {{i.location}}</span></h5>
+
+                <a href="http://{{i.url}}" class="fill-div"></a>
+                <footer>
+                    <a ng-href="http://{{i.url}}">
+                        <span><i>{{i.date}}</i> - {{i.title}} - <b>{{i.price}}</b> {{i.location}}</span>
                     </a>
-                </md-grid-tile-footer>
+                </footer>
             </md-grid-tile>
         </md-grid-list>
     </md-card>
