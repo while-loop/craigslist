@@ -1,8 +1,8 @@
-var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial']);
+var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial', 'ngCookies']);
 
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
-        title: 'Craig\'s List Search',
+        title: 'Craigslist Search',
         templateUrl: 'components/search/search.html',
         controller: 'SearchController'
     });
@@ -25,6 +25,10 @@ app.config(function ($mdThemingProvider) {
         .accentPalette('pink');
     $mdThemingProvider.theme('input', 'default')
         .primaryPalette('grey')
+});
+
+app.factory('myCache', function($cacheFactory) {
+    return $cacheFactory('myData');
 });
 
 app.run(['$rootScope', '$route', function ($rootScope, $route) {
