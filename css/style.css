@@ -109,7 +109,7 @@ md-toolbar.md-table-toolbar.alternate .md-toolbar-tools {
     top: 0;
     right: 0;
     left: 0;
-    height: 20.2vh;
+    height: 300px;
     background-image: url(../header-bg.jpeg);
     background-size: cover;
 }
