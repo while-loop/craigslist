@@ -5,9 +5,8 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
 
         if (window.performance) {
             if (performance.navigation.type == 1) {
-                console.log('page reloaded');
                 $localStorage.results = {};
-                alert("reloaded");
+                $localStorage.total = 0;
             }
         }
 
@@ -48,6 +47,7 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
         // catch if the user is leaving the page to a different site
         window.onbeforeunload = function (e) {
             $localStorage.pos = document.getElementsByTagName('md-content')[0].scrollTop;
+            $localStorage.total = $scope.total;
             $localStorage.$apply();
             return undefined;
         };

@@ -27,9 +27,13 @@
       <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/search/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-              <folding />
+            <state relative-caret-position="405">
+              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+              <folding>
+                <element signature="e#2022#5897#0" expanded="false" />
+                <element signature="e#5948#6309#0" expanded="false" />
+                <element signature="e#6340#6632#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -598,12 +602,12 @@
       <updated>1479671202813</updated>
       <workItem from="1479671203970" duration="26104000" />
       <workItem from="1479699255186" duration="278000" />
-      <workItem from="1480429009392" duration="21212000" />
+      <workItem from="1480429009392" duration="21366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47594000" />
+    <option name="totallyTimeSpent" value="47748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1126" extended-state="6" />
@@ -660,7 +664,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2022#5897#0" expanded="false" />
+            <element signature="e#5948#6309#0" expanded="false" />
+            <element signature="e#6340#6632#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -704,7 +712,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2022#5897#0" expanded="false" />
+            <element signature="e#5948#6309#0" expanded="false" />
+            <element signature="e#6340#6632#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -797,9 +809,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/search/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="405">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+          <folding>
+            <element signature="e#2022#5897#0" expanded="false" />
+            <element signature="e#5948#6309#0" expanded="false" />
+            <element signature="e#6340#6632#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
