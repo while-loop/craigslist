@@ -1,17 +1,21 @@
-app.controller('SearchController', ['$scope', '$cookies', 'myCache',
-    function ($scope, $cookies, myCache) {
+app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
+    function ($scope, $cookies, $localStorage) {
         var URL = 'http://AREA.craigslist.org/search/sss?sort=rel&query=QUERY';
         var IMAGE_URL = 'https://images.craigslist.org/IMAGE_ID_600x450.jpg';
 
-        $scope.results = {};
-        var cache = myCache.get('myData');
-        if (cache) { // If there’s something in the cache, use it!
-            $scope.results = cache;
+        if ($localStorage.hiddenResults === undefined) {
+            $localStorage.hiddenResults = [];
         }
+        $scope.results = $localStorage.results || {};
+        setTimeout(function () {
+            document.getElementsByTagName('md-content')[0].scrollTop = $localStorage.pos;
+        }, 2000);
+
         $scope.input = $cookies.get("areas") ? $cookies.get("areas") : "lakeland,miami,spacecoast";
         $scope.query = $cookies.get("query") ? $cookies.get("query") : "240sx";
         $scope.areas = $scope.input.split(',');
         $scope.hidden = {};
+
         for (var i = 0; i < $scope.areas.length; i++) {
             $scope.hidden[$scope.areas[i]] = false;
         }
@@ -22,16 +26,29 @@ app.controller('SearchController', ['$scope', '$cookies', 'myCache',
         };
 
         $scope.hideResult = function (area, obj) {
-            console.log("area: " + area + " object: " + obj);
             var index = $scope.results[area].indexOf(obj);
-            console.log("index: " + index);
 
             if (index > -1) {
                 $scope.results[area].splice(index, 1);
                 $scope.total--;
-
+                $localStorage.hiddenResults.push(obj["id"]);
             }
         };
+
+
+        // catch if the user is leaving the page to a different site
+        window.onbeforeunload = function (e) {
+            $localStorage.pos = document.getElementsByTagName('md-content')[0].scrollTop;
+
+            if (document.activeElement.href === undefined) {
+                delete  $localStorage.results;
+                $localStorage.results = {};
+                $localStorage.pos = 0;
+            }
+            $localStorage.$apply();
+            return undefined;
+        };
+
         $scope.search = function () {
             $cookies.put("areas", $scope.input);
             $cookies.put("query", $scope.query);
@@ -48,6 +65,11 @@ app.controller('SearchController', ['$scope', '$cookies', 'myCache',
                     var test = new DOMParser().parseFromString(data, 'text/html');
                     var rows = test.getElementsByClassName("result-row");
                     for (var i = 0; i < rows.length; i++) {
+                        var pid = rows[i].getAttribute("data-pid");
+                        if ($localStorage.hiddenResults.indexOf(pid) > -1) {
+                            console.log("Hidding ad.. ID: " + pid);
+                            continue;
+                        }
                         var url = rows[i].getElementsByClassName("result-image")[0].getAttribute("href");
                         if (url.substring(0, 2) != "//") {
                             url = myArea + ".craigslist.org" + url;
@@ -80,6 +102,7 @@ app.controller('SearchController', ['$scope', '$cookies', 'myCache',
                         }
 
                         var result = {
+                            id: pid,
                             url: url,
                             title: title,
                             date: date,
@@ -95,7 +118,7 @@ app.controller('SearchController', ['$scope', '$cookies', 'myCache',
                     $scope.$apply();
                 }
             }
-            myCache.put("myData", $scope.results);
+            $localStorage.results = $scope.results;
         };
         function httpGet(theUrl, area, callback) {
             var xmlHttp = new XMLHttpRequest();

@@ -1,4 +1,4 @@
-var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial', 'ngCookies']);
+var app = angular.module('StarterApp', ['ngRoute', 'ngMaterial', 'ngCookies', 'ngStorage']);
 
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
