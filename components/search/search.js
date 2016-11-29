@@ -37,9 +37,14 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage',
             var index = $scope.results[area].indexOf(obj);
 
             if (index > -1) {
+                var scrollPos = document.getElementsByTagName('md-content')[0].scrollTop;
+                console.log(scrollPos);
                 $scope.results[area].splice(index, 1);
                 $scope.total--;
                 $localStorage.hiddenResults.push(obj["id"]);
+                setTimeout(function () {
+                    document.getElementsByTagName('md-content')[0].scrollTop = scrollPos;
+                }, 50);
             }
         };
 
