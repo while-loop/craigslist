@@ -97,7 +97,6 @@ md-toolbar.md-table-toolbar.alternate .md-toolbar-tools {
     overflow: auto;
     max-width: 1536px;
     margin: auto;
-    padding: 1%;
     opacity: .99999; /* header row would inherit opacity of top-bg*/
 }
 
