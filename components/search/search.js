@@ -1,7 +1,7 @@
 app.controller('SearchController', ['$scope', '$cookies', 'myCache',
     function ($scope, $cookies, myCache) {
         var URL = 'http://AREA.craigslist.org/search/sss?sort=rel&query=QUERY';
-        var IMAGE_URL = 'https://images.craigslist.org/IMAGE_ID_300x300.jpg';
+        var IMAGE_URL = 'https://images.craigslist.org/IMAGE_ID_600x450.jpg';
 
         $scope.results = {};
         var cache = myCache.get('myData');
@@ -13,8 +13,16 @@ app.controller('SearchController', ['$scope', '$cookies', 'myCache',
         $scope.areas = $scope.input.split(',');
         $scope.total = 0;
 
-        $scope.hide = function (id) {
-            console.log("Id: " + id);
+        $scope.hide = function (area, obj) {
+            console.log("area: " + area + " object: " + obj);
+            var index = $scope.results[area].indexOf(obj);
+            console.log("index: " + index);
+
+            if (index > -1) {
+                $scope.results[area].splice(index, 1);
+                $scope.total--;
+
+            }
         };
         $scope.search = function () {
             $cookies.put("areas", $scope.input);
