@@ -55,6 +55,15 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage', '$htt
             return undefined;
         };
 
+        $scope.changePic = function (obj, dir) {
+            var url = document.getElementById(obj["id"]).style.backgroundImage;
+            url = url.substring(url.indexOf('("') + 2, url.indexOf('")'));
+            var idx = obj["pics"].indexOf(url);
+            if (idx > -1) {
+                document.getElementById(obj["id"]).style.backgroundImage = 'url("' + obj["pics"][(idx + dir).mod(obj["pics"].length)] + '")';
+            }
+        };
+
         $scope.search = function () {
             $cookies.put("areas", $scope.input);
             $cookies.put("query", $scope.query);
@@ -64,6 +73,7 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage', '$htt
             for (var i = 0; i < $scope.areas.length; i++) {
                 $scope.areas[i] = trim11($scope.areas[i]);
                 var area = $scope.areas[i];
+                $scope.hidden[area] = true;
                 var tmpUrl = URL.replace("AREA", area).replace("QUERY", $scope.query);
                 $http.get(tmpUrl)
                     .then(function (response) {
@@ -78,6 +88,10 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage', '$htt
                         });
                         $scope.total += $scope.results[area].length;
                         $scope.searching = false;
+                        setTimeout(function () {
+                            $scope.hidden[area] = false;
+                            $scope.$apply();
+                        }, 1);
                     });
             }
             $localStorage.results = $scope.results;
@@ -93,5 +107,9 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage', '$htt
             }
             return str;
         }
+
+        Number.prototype.mod = function(n) {
+            return ((this%n)+n)%n;
+        };
     }
 ]);

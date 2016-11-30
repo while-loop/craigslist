@@ -39,13 +39,39 @@ md-content {
     -webkit-filter: brightness(150%);
 }
 
+md-grid-tile label {
+    position: absolute;
+    height: 50%;
+    width: auto;
+
+    opacity: .3;
+    z-index: 9;
+    cursor: pointer;
+
+    transition: opacity .2s;
+
+    color: #FFF;
+    font-size: 100px;
+
+    text-align: center;
+    vertical-align: middle;
+
+
+    font-family: "Varela Round", sans-serif;
+    text-shadow: 0 0 15px rgb(119, 119, 119);
+}
+
+.next { right: 0; }
+.prev { left: 0; }
+md-grid-tile label:hover { opacity: 1; }
+
 footer {
     position: absolute;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     padding: 10px 10px;
-    z-index: 100;
+    z-index: 5;
     background: linear-gradient(
             to bottom,
             rgba(0, 0, 0, 0),

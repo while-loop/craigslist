@@ -39,12 +39,15 @@
         <md-grid-list ng-hide="hidden[area]" md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5"
                       md-row-height-gt-md="1:1"
                       md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
-            <md-grid-tile id="{{i.pid}}"
+            <md-grid-tile id="{{i.id}}"
                           style="background: url('{{i.pics[0]}}') center center no-repeat; background-size: cover;"
-                          ng-repeat="i in results[area] track by $index">
+                          ng-repeat="i in results[area] track by $index"
+                          class="item">
 
                 <button class="hide-icon" ng-click="hideResult(area, i)"></button>
                 <a href="http://{{i.url}}" class="fill-div"></a>
+                <label ng-show="i.pics.length > 1" ng-click="changePic(i, -1)" class="prev">&#x2039;</label>
+                <label ng-show="i.pics.length > 1" ng-click="changePic(i, 1)" class="next">&#x203a;</label>
                 <footer>
                     <a href="http://{{i.url}}">
                         <span><i>{{i.date}}</i> - {{i.title}} - <b>{{i.price}}</b> {{i.location}}</span>
