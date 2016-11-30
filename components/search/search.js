@@ -22,11 +22,11 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage', '$htt
         $scope.query = $cookies.get("query") ? $cookies.get("query") : "240sx";
         $scope.areas = $scope.input.split(',');
         $scope.hidden = {};
+        $scope.total = $localStorage.total;
 
         for (var i = 0; i < $scope.areas.length; i++) {
             $scope.hidden[$scope.areas[i]] = false;
         }
-        $scope.total = 0;
 
         $scope.toggleArea = function (area) {
             $scope.hidden[area] = !$scope.hidden[area];
