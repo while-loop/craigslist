@@ -27,10 +27,6 @@ app.config(function ($mdThemingProvider) {
         .primaryPalette('grey')
 });
 
-app.factory('myCache', function($cacheFactory) {
-    return $cacheFactory('myData');
-});
-
 app.run(['$rootScope', '$route', function ($rootScope, $route) {
     $rootScope.$on('$routeChangeSuccess', function () {
         document.title = $route.current.title;
