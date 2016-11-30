@@ -70,9 +70,9 @@ app.controller('SearchController', ['$scope', '$cookies', '$localStorage', '$htt
                         var area = response.data['area'];
                         $scope.results[area] = response.data['results'].filter(function (obj) {
                             if ($localStorage.hiddenResults.indexOf(obj["id"]) == -1) {
-                                console.log("Hidding ad... ID: " + obj["id"]);
                                 return true;
                             } else {
+                                console.log("Hidding ad... ID: " + obj["id"]);
                                 return false;
                             }
                         });
