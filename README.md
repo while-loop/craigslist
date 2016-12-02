@@ -1,3 +1,3 @@
 # craigslist
 
-cross area craigslist searchh
+cross area craigslist search
