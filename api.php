@@ -6,7 +6,8 @@ $IMAGE_URL = 'https://images.craigslist.org/IMAGE_ID_600x450.jpg';
 $area = $_GET['area'];
 $query = $_GET['query'];
 
-$html = file_get_html('https://' . $area . '.craigslist.org/search/sss?sort=rel&query=' . $query);
+$url = 'https://' . urlencode($area) . '.craigslist.org/search/sss?sort=rel&query=' . urlencode($query);
+$html = file_get_html($url);
 $results = array();
 foreach ($html->find('li[class=result-row]') as $row) {
     $pid = $row->getAttribute('data-pid');
