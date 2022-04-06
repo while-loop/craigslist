@@ -1,6 +1,6 @@
 app.controller('SearchController', ['$scope', '$cookies', '$localStorage', '$http',
     function ($scope, $cookies, $localStorage, $http) {
-        var URL = 'http://anthonyalves.science/craigslist/api.php?area=AREA&query=QUERY';
+        var URL = 'http://localhost/api.php?area=AREA&query=QUERY';
 
         if (window.performance) {
             if (performance.navigation.type == 1) {
